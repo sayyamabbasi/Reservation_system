@@ -1,0 +1,10 @@
+C:\Users\Sayyam\Documents\Visual Studio 2012\Projects\wpfSwitcher\datalayer\bin\Debug\datalayer.dll.config
+C:\Users\Sayyam\Documents\Visual Studio 2012\Projects\wpfSwitcher\datalayer\bin\Debug\datalayer.dll
+C:\Users\Sayyam\Documents\Visual Studio 2012\Projects\wpfSwitcher\datalayer\bin\Debug\datalayer.pdb
+C:\Users\Sayyam\Documents\Visual Studio 2012\Projects\wpfSwitcher\datalayer\bin\Debug\EntityFramework.dll
+C:\Users\Sayyam\Documents\Visual Studio 2012\Projects\wpfSwitcher\datalayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Sayyam\Documents\Visual Studio 2012\Projects\wpfSwitcher\datalayer\bin\Debug\EntityFramework.xml
+C:\Users\Sayyam\Documents\Visual Studio 2012\Projects\wpfSwitcher\datalayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Sayyam\Documents\Visual Studio 2012\Projects\wpfSwitcher\datalayer\obj\Debug\datalayer.dll
+C:\Users\Sayyam\Documents\Visual Studio 2012\Projects\wpfSwitcher\datalayer\obj\Debug\datalayer.pdb
+C:\Users\Sayyam\Documents\Visual Studio 2012\Projects\wpfSwitcher\datalayer\obj\Debug\datalayer.csprojResolveAssemblyReference.cache

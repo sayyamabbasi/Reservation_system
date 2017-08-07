@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6430ff9c52ad43dc882269aaf6e640a8" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="hrsModel.admin" Width="1.5" PointX="6.5" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="hrsModel.booking" Width="1.5" PointX="4.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="hrsModel.customer" Width="1.5" PointX="0.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="hrsModel.record" Width="1.5" PointX="0.5" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="hrsModel.user" Width="1.5" PointX="9.25" PointY="7" IsExpanded="true" />
+        <AssociationConnector Association="hrsModel.FK_admin_users" ManuallyRouted="false" />
+        <AssociationConnector Association="hrsModel.FK_users_booking" ManuallyRouted="false" />
+        <AssociationConnector Association="hrsModel.FK_customer_booking" />
+        <EntityTypeShape EntityType="hrsModel.room" Width="1.5" PointX="1.125" PointY="1.875" />
+        <AssociationConnector Association="hrsModel.FK_booking_room" />
+        <EntityTypeShape EntityType="hrsModel.payment" Width="1.5" PointX="1.375" PointY="10.25" />
+        <AssociationConnector Association="hrsModel.FK_payment_booking" />
+        <AssociationConnector Association="hrsModel.FK_payment_customer" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

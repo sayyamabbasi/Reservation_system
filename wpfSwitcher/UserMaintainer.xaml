@@ -1,0 +1,486 @@
+﻿<UserControl x:Class="HOTEL_RESERVATION_SYSTEM.UserMaintainer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="650" d:DesignWidth="900" Loaded="loadgrid" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.04*"/>
+            <ColumnDefinition Width="0.50*"/>
+            <ColumnDefinition Width="0.04*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.ColumnSpan="3" Grid.Row="0">
+            <Menu Width="Auto" Height="30" VerticalAlignment="Top">
+                <MenuItem Header="File" FontFamily="Time New Roman" FontSize="15">
+                    <MenuItem Name="fileAddDoctor" Header="Admin" />
+                    <MenuItem Name="fileAddPatient" Header="user" />
+                    <MenuItem Name="fileAddRoom" Header="logout" />
+                </MenuItem>
+                <MenuItem Header="Help" FontFamily="Time New Roman" FontSize="15">
+                    <MenuItem Name="helpabout" Header="About" />
+                </MenuItem>
+            </Menu>
+        </Grid>
+        <TabControl Grid.ColumnSpan="3" Grid.Row="1" HorizontalAlignment="Center"  VerticalAlignment="Top" TabStripPlacement="Top" Background="{x:Null}" Grid.RowSpan="2" Height="600"  Width="800" >
+
+            <TabItem  Header="Make__booking" Width="150" Height="40" FontFamily="algerian" FontSize="17" Background="{x:Null}"  VerticalAlignment="Bottom">
+                <Grid>
+                    <Grid x:Name="bkings">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="297*"/>
+                            <ColumnDefinition Width="100*"/>
+                            <ColumnDefinition Width="397*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="200"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+                            <Label Content="First Name" Width="100" Height="30" FontSize="15" HorizontalAlignment="Left"/>
+                        </Grid>
+                        <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+                            <TextBox x:Name="fnam"  Width="250" Height="30" HorizontalAlignment="Right" TextChanged="fnam_TextChanged"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="0">
+                            <Label Content="Last Name" Width="100" FontSize="15" Height="30" HorizontalAlignment="Left"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="0">
+                            <TextBox x:Name="lname"  Width="250" Height="30" HorizontalAlignment="Right" TextChanged="lname_TextChanged"/>
+                        </Grid>
+                        <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+                            <Label Content="cnic__NO" Width="100" FontSize="15" Height="30" HorizontalAlignment="Left"/>
+                        </Grid>
+                        <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+                            <xctk:MaskedTextBox Mask="00000-0000000-0" x:Name="cnic"  Width="250" Height="30" HorizontalAlignment="Right" TextChanged="cnic_TextChanged" />
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left">
+                            <Label Content="contact#"  FontSize="15" Width="100" Height="30"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="1">
+                            <xctk:MaskedTextBox Mask="0000-0000000" x:Name="ph_no"  Width="250" Height="30" HorizontalAlignment="Right" TextChanged="ph_no_TextChanged"/>
+                        </Grid>
+                        <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
+                            <Label Content="Date Of Booking" Width="140"  FontSize="15" Height="30" HorizontalAlignment="Left"/>
+                        </Grid>
+                        <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
+                            <DatePicker x:Name="DOB"  Width="250"    Height="30" HorizontalAlignment="Right"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="2">
+                            <Label Content="Leaving date" Width="120" FontSize="15"  Height="30" HorizontalAlignment="Left"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="2">
+                            <DatePicker x:Name="lod"  Width="250" Height="30" HorizontalAlignment="Right"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="4">
+                            <TextBox x:Name="add"  Width="230" Height="30" HorizontalAlignment="Center" TextChanged="add_TextChanged"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="5">
+                            <ComboBox x:Name="rm_type"   Width="230">
+
+                                <ComboBoxItem IsSelected="True">select room_type</ComboBoxItem>
+                                <ComboBoxItem>single bed</ComboBoxItem>
+                                <ComboBoxItem>double bed</ComboBoxItem>
+                            </ComboBox>
+                        </Grid>
+                        <Grid Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2">
+                            <Label  Content="Address" Width="150" Height="30" HorizontalAlignment="Center"/>
+                        </Grid>
+                        <Grid Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2">
+                            <Label  Content="Select__type" Width="150" Height="30" HorizontalAlignment="Center"/>
+                        </Grid>
+
+                        <Grid Grid.Column="2" Grid.Row="4"/>
+                        <Grid Grid.Column="2" Grid.Row="7">
+                            <Button Content="add" Width="125" Height="30" HorizontalAlignment="Left" Background="#FF00EECD" Click="make_booking"/>
+                        </Grid>
+
+                        <Grid Grid.ColumnSpan="3" Grid.Row="8">
+                            <DataGrid Name="addgrid" SelectionMode="Single" AutoGenerateColumns="False"  HorizontalAlignment="Center" VerticalAlignment="Top" Height="200" Width="800" Margin="-3,0" SelectionChanged="addgrid_SelectionChanged" >
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Width="100" Binding="{Binding fname}" Header="First Name" />
+
+                                    <DataGridTextColumn Width="100" Binding="{Binding lastname}" Header="Last Name"  />
+                                    <DataGridTextColumn  Width="100" Binding="{Binding cnic}" Header="CNIC#"  />
+                                    <DataGridTextColumn Width="100" Header="Phone" Binding="{Binding cell_no}" />
+                                    <DataGridTextColumn Width="100" Header="Address" Binding="{Binding Address}"/>
+                                    <DataGridTextColumn  Width="230" Header="Date of Booking" Binding="{Binding booking.booking_date}" />
+                                    <DataGridTextColumn Width="230" Header="Date leaving" Binding="{Binding booking.leave_date}"/>
+                                    <DataGridTextColumn Width="230" Header="Room#" Binding="{Binding booking.Room_}"/>
+                                    <DataGridTextColumn Width="230" Header="Room__type" Binding="{Binding booking.room.room_type}"/>
+
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </Grid>
+                    <Grid x:Name="availabl_rm">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="297*"/>
+                            <ColumnDefinition Width="200*"/>
+                            <ColumnDefinition Width="397*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.ColumnSpan="3" Grid.Row="1" >
+                            <Label Content="ROOM Availability checking" HorizontalAlignment="Center" FontSize="25"/>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="3">
+                            <ComboBox x:Name="availble_combo" HorizontalAlignment="Left"  Width="230" SelectionChanged="availble_combo_SelectionChanged" >
+
+                                <ComboBoxItem IsSelected="True">select room_type</ComboBoxItem>
+                                <ComboBoxItem>single bed</ComboBoxItem>
+                                <ComboBoxItem>double bed</ComboBoxItem>
+                            </ComboBox>
+                        </Grid>
+                        
+                        <Grid Grid.Column="0" Grid.Row="5" >
+                            <Label x:Name="rmavlbl" Content="Availabel Rooms" HorizontalAlignment="Right" FontSize="18"/>
+                        </Grid>
+                        <Grid Grid.ColumnSpan="3" Grid.Row="6" >
+                            <Label x:Name="ntavailbl" Content="" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontSize="18"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="5" >
+                            <TextBox x:Name="rmavlbl_text" HorizontalAlignment="Left"  Width="230" Height="30"/>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="7" VerticalAlignment="Bottom" >
+                            <Button Content="next" x:Name="next" Height="40" Width="150" HorizontalAlignment="Left" FontSize="18" Background="#FF00EECD" Click="next_Click"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="7" VerticalAlignment="Bottom" >
+                            <Button Content="ok" x:Name="check" Height="40" Width="150" HorizontalAlignment="left" FontSize="18" Background="#FF00EECD" Click="check_Click"/>
+                        </Grid>
+                        
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="update__booking" Width="170" Height="40" FontFamily="algerian" FontSize="17" Background="{x:Null}" VerticalAlignment="Bottom">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.15*"/>
+                        <ColumnDefinition Width="0.15*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="200"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Column="0" Grid.Row="0">
+                        <Label Content="First Name" Width="100" Height="30" FontSize="15" HorizontalAlignment="Left"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="0">
+                        <TextBox x:Name="fname" Width="250" Height="30" HorizontalAlignment="Right" TextChanged="fname_TextChanged"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="0">
+                        <Label Content="Last Name" Width="100" FontSize="15" Height="30" HorizontalAlignment="Left"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="0">
+                        <TextBox  x:Name="clnam" Width="250" Height="30" HorizontalAlignment="Right" TextChanged="clnam_TextChanged"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="1">
+                        <Label Content="cnic__NO" Width="100" FontSize="15" Height="30" HorizontalAlignment="Left"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="1">
+                        <xctk:MaskedTextBox Mask="00000-0000000-0" x:Name="ccnic" Width="250" Height="30" HorizontalAlignment="Right" TextChanged="ccnic_TextChanged" />
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left">
+                        <Label Content="contact#"  FontSize="15" Width="100" Height="30"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="1">
+                        <xctk:MaskedTextBox Mask="0000-0000000" x:Name="ccont" Width="250" Height="30" HorizontalAlignment="Right" TextChanged="ccont_TextChanged"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="2">
+                        <Label Content="Date Of Booking" Width="140"  FontSize="15" Height="30" HorizontalAlignment="Left"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="2">
+                        <Label Content="leaving date" Width="140"  FontSize="15" Height="30" HorizontalAlignment="Left"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="2" >
+                        <DatePicker x:Name="db" Width="250"    Height="30" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="2" >
+                        <DatePicker x:Name="ld" Width="250"    Height="30" HorizontalAlignment="Right"/>
+                    </Grid>
+
+                    <Grid Grid.Column="0" Grid.Row="3"/>
+                    <Grid Grid.Column="0" Grid.Row="4">
+                        <Label  Content="Address   " Width="100" FontSize="15" Height="30" HorizontalAlignment="Center" Margin="128,10,169,1"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="5">
+                        <Label  Content="select__type " Width="130" FontSize="15" Height="30"  Margin="128,10,169,1"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="4">
+                        <TextBox x:Name="cadd"  Width="300" Height="30" HorizontalAlignment="Left" TextChanged="cadd_TextChanged"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="5">
+                    <ComboBox IsEditable="True" x:Name="urm_type"   Width="300" Height="30" HorizontalAlignment="Left"  >
+                            <ComboBoxItem IsSelected="true">select_type</ComboBoxItem>
+                            <ComboBoxItem>single bed</ComboBoxItem>
+                        <ComboBoxItem>double bed</ComboBoxItem>
+                    </ComboBox>
+                </Grid>
+                <Grid Grid.Column="0" Grid.Row="7">
+                        <Button Content="Update" Width="125" Height="30" HorizontalAlignment="Right" Background="#FF00EECD"  Margin="0,0,0,5" VerticalAlignment="Bottom" Click="updat"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="7">
+                        <Button Content="cancel" Width="125" Height="30" HorizontalAlignment="Center" Background="#FF00EECD"   VerticalAlignment="Bottom" Click="Button_Click_1" />
+                    </Grid>
+
+                    <Grid Grid.Column="0" Grid.Row="7">
+                        <Button Content="delete" Width="125" Height="30" HorizontalAlignment="Left" Background="#FF00EECD" Click="Button_delete"/>
+                    </Grid>
+                    <Grid Grid.ColumnSpan="2" Grid.Row="9">
+                        <DataGrid Name="update_grid" CanUserAddRows="False" SelectionMode="Single" SelectionChanged="update_grid_SelectionChanged" MaxWidth="1000" AutoGenerateColumns="False"  HorizontalAlignment="Center" VerticalAlignment="Top" Height="150" Width="800" Margin="-3,27,-3,-15">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Width="100" Binding="{Binding fname}" Header="First Name" />
+
+                                <DataGridTextColumn Width="100" Binding="{Binding lastname}" Header="Last Name"  />
+                                <DataGridTextColumn  Width="100" Binding="{Binding cnic}" Header="CNIC#"  />
+                                <DataGridTextColumn Width="100" Header="Phone" Binding="{Binding cell_no}" />
+                                <DataGridTextColumn Width="100" Header="Address" Binding="{Binding Address}"/>
+                                <DataGridTextColumn  Width="230" Header="Date of Booking" Binding="{Binding booking.booking_date}" />
+                                <DataGridTextColumn Width="230" Header="Date leaving" Binding="{Binding booking.leave_date}"/>
+                                <DataGridTextColumn Width="230" Header="room__type" Binding="{Binding booking.room.room_type}"/>
+                              
+
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="search__customer" Width="175" Height="40" FontFamily="algerian" FontSize="17" Background="{x:Null}"  VerticalAlignment="Bottom">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.15*"/>
+                            <ColumnDefinition Width="0.15*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="200"/>
+                        </Grid.RowDefinitions>
+                        
+                    
+                        <Grid Grid.Column="1" Grid.Row="0"/>
+                    
+                    <Grid Grid.Column="0" Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="224*"/>
+                            <ColumnDefinition Width="173*"/>
+                        </Grid.ColumnDefinitions>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left"/>
+                    <Grid Grid.ColumnSpan="1" Grid.Row="1">
+                        <Label Content="SELECT__TYPE" Width="150" FontSize="20" Height="30" HorizontalAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.ColumnSpan="1" Grid.Row="3">
+                        <Label x:Name="label" Content="" Width="150" FontSize="20" Height="30" HorizontalAlignment="Center"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="3">
+                            <DatePicker x:Name="lvdate" Width="250" Height="30" HorizontalAlignment="Center"/>
+                        </Grid>
+                    <Grid Grid.Column="1" Grid.Row="3">
+                        <DatePicker x:Name="bkdate" Width="250" Height="50" HorizontalAlignment="Center" />
+                    </Grid>
+
+                    
+                    <Grid Grid.Column="1" Grid.Row="3">
+                        <xctk:MaskedTextBox Mask="00000-0000000-0" x:Name="srcni" Width="250" Height="30" HorizontalAlignment="Center" TextChanged="srcni_TextChanged"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="3">
+                        <TextBox x:Name="srnam" Width="250" Height="35" HorizontalAlignment="Center" TextChanged="srnam_TextChanged" />
+                    </Grid>
+                        <Grid Grid.Column="1" Grid.Row="1">
+                        <ComboBox IsEditable="True" x:Name="searchtype"   Width="230" >
+
+                            <ComboBoxItem  IsSelected="True">searchtype</ComboBoxItem>
+                            <ComboBoxItem>name</ComboBoxItem>
+                            <ComboBoxItem>cnic</ComboBoxItem>
+                            <ComboBoxItem>booking date</ComboBoxItem>
+                            <ComboBoxItem>leaving date</ComboBoxItem>
+                        </ComboBox>
+                    </Grid>
+                        
+                    <Grid Grid.Column="0" Grid.Row="6">
+                            <Button x:Name="search_btn" Content="search" Width="125" Height="30" HorizontalAlignment="Right" Background="#FF00EECD" Click="searchrecord"/>
+                        </Grid>
+                    
+                    <Grid Grid.Column="1" Grid.Row="6">
+                        <Button x:Name="cancle_btn" Content="cancel" Width="125" Height="30" HorizontalAlignment="Center" Background="#FF00EECD"   VerticalAlignment="Bottom" Click="cancel" />
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="3">
+                        <Button x:Name="ok" Content="ok" Width="125" Height="40" HorizontalAlignment="Right" Background="#FF00EECD" Click="Searchcust"/>
+                    </Grid>
+
+                    <Grid Grid.ColumnSpan="2" Grid.Row="8">
+                            <DataGrid  x:Name="search_grid"  CanUserAddRows="False" SelectionMode="Single" MaxWidth="1000" Height="250" AutoGenerateColumns="False"  HorizontalAlignment="Center" VerticalAlignment="Top"  Width="800" Margin="-3,-2,-3,-147">
+                                <DataGrid.Columns>
+                                <DataGridTextColumn Width="120" Binding="{Binding fname}" Header="First Name" />
+
+                                <DataGridTextColumn Width="120" Binding="{Binding lastname}" Header="Last Name"  />
+                                <DataGridTextColumn  Width="100" Binding="{Binding CNIC_}" Header="CNIC#"  />
+                                <DataGridTextColumn Width="100" Header="Phone" Binding="{Binding cell_no}" />
+                                <DataGridTextColumn Width="100" Header="Address" Binding="{Binding Address}"/>
+                                <DataGridTextColumn Width="100" Header="room#" Binding="{Binding room_}"/>
+                                <DataGridTextColumn  Width="230" Header="Date of Booking" Binding="{Binding Booking_date}" />
+                                <DataGridTextColumn Width="230" Header="Date leaving" Binding="{Binding leaving_date}"/>
+                                <DataGridTextColumn Width="230" Header="bill" Binding="{Binding amount}"/>
+                            </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+            <TabItem Header="kitchen__services  " Width="185"  FontSize="19" Background="{x:Null}" FontFamily="algerian" Margin="0">
+                <Grid >
+                    
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="201*"/>
+                        <ColumnDefinition Width="147*"/>
+                        <ColumnDefinition Width="44*"/>
+                        <ColumnDefinition Width="103*"/>
+                        <ColumnDefinition Width="147*"/>
+                        <ColumnDefinition Width="147*"/>
+
+
+
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        
+                        <RowDefinition Height="130"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="60"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="  Room NO" FontSize="20" Grid.Row="0" HorizontalAlignment="Center"  VerticalAlignment="Center" FontFamily="algerian" Grid.ColumnSpan="2" Margin="124,30,124,65" />
+                        <TextBox x:Name="kit_rmno" FontSize="20" Grid.Column="4" Grid.Row="0" HorizontalAlignment="Center"  VerticalAlignment="Center" FontFamily="algerian" Width="150" Grid.ColumnSpan="2" Margin="0,38,146,64" TextChanged="kit_rmno_TextChanged" />
+
+                        <Label Content="Food Selection" VerticalAlignment="Bottom"  FontSize="20" Grid.Row="1" FontWeight="ExtraBold" FontFamily="calibri" Height="44"/>
+                    <Label Content="  Food Menu" FontSize="30" HorizontalAlignment="Center" Grid.Row="0"  VerticalAlignment="Bottom" FontFamily="algerian" Width="333" Height="50"  Grid.ColumnSpan="2"/>
+                    <Label Content="Special Services" Grid.Column="4" Grid.Row="1" VerticalAlignment="Bottom" FontWeight="ExtraBold" FontFamily="calibri"  FontSize="20" HorizontalAlignment="Left" Width="315" Grid.ColumnSpan="2"/>
+                    <Button Content="NEXT" Background="#08a525" Grid.Column="4" Grid.Row="5" Height="40" Width="150" VerticalAlignment="Center" FontFamily="calibri" HorizontalAlignment="Center"   Click="check_next"  >
+                    </Button>
+                    <ComboBox x:Name="fdslec"  FontFamily="algerian" HorizontalAlignment="Left" Width="200" Grid.Column="0" Grid.Row="3">
+                        <ComboBoxItem IsSelected="True" > Select__type</ComboBoxItem>
+                        <ComboBoxItem>breakfast</ComboBoxItem>
+                        <ComboBoxItem>brunch</ComboBoxItem>
+                        <ComboBoxItem>lunch</ComboBoxItem>
+                        <ComboBoxItem>dinner</ComboBoxItem>
+                        <ComboBoxItem>tea/coffee</ComboBoxItem>
+                    </ComboBox>
+                    <Label Content="Quantity :" FontSize="20" VerticalAlignment="Center" FontFamily="calibri" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="3">
+                    </Label>
+                    <TextBox Name="qunty"  FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Width="60" FontFamily="calibri" Grid.Column="1" Grid.Row="3" TextChanged="qunty_TextChanged">
+                    </TextBox>
+                    <CheckBox Content="Towels" FontSize="20" VerticalAlignment="Center" FontFamily="calibri" HorizontalAlignment="Left" Grid.Column="4" Grid.Row="3">
+                    </CheckBox>
+                    <CheckBox Content="Sweet Surprises" FontSize="20" VerticalAlignment="Center" FontFamily="calibri" HorizontalAlignment="Left" Grid.Column="4" Grid.Row="2">
+                    </CheckBox>
+                    <CheckBox Content="Laundary" FontSize="20" VerticalAlignment="Center" FontFamily="calibri" HorizontalAlignment="Left" Grid.Column="4" Grid.Row="4" >
+                    </CheckBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="make__bill" Width="115" Height="40" FontFamily="algerian" FontSize="17" Background="{x:Null}" VerticalAlignment="Bottom" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.15*"/>
+                        <ColumnDefinition Width="0.15*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="200"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Column="0" Grid.Row="2">
+                        <Label Content="ENter First  Name" Width="250" Height="35" FontSize="22" HorizontalAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="2">
+                        <TextBox x:Name="bname" Width="250" Height="30" HorizontalAlignment="Center" TextChanged="bname_TextChanged"/>
+                    </Grid>
+                    
+                    
+                    <Grid Grid.Column="0" Grid.Row="3">
+                        <Label Content="Enter cnic__NO" Width="250" FontSize="22" Height="35" HorizontalAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="4">
+                        <Label Content="Enter room__NO" Width="250" FontSize="22" Height="35" HorizontalAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="3">
+                        <xctk:MaskedTextBox Mask="00000-0000000-0" x:Name="bcnic" Width="250" FontFamily="Arial" Height="30" HorizontalAlignment="Center" Margin="74,1,73,10" TextChanged="bcnic_TextChanged"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="4">
+                        <TextBox   x:Name="brno" FontFamily="arial" Width="250" Height="30" HorizontalAlignment="Center" TextChanged="brno_TextChanged" />
+                    </Grid>
+                   
+                   
+                    
+                    <Grid Grid.Column="1" Grid.Row="6">
+                        <Button Content="make__bill" Width="125" Height="30" HorizontalAlignment="Left" Background="#FF00EECD"   VerticalAlignment="Bottom" Click="makebill"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="6">
+                        <Button Content="cancel" Width="125" Height="30" HorizontalAlignment="Right" Background="#FF00EECD"   VerticalAlignment="Bottom" Click="Button_Click_1" />
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="6">
+                        <Button Content="show__bill" Width="125" Height="30" HorizontalAlignment="Center" Background="#FF00EECD"   VerticalAlignment="Bottom" Click="showbill"/>
+                    </Grid>
+                    
+                    <Grid Grid.ColumnSpan="2" Grid.Row="8">
+                        <DataGrid  x:Name="bill_grid"  CanUserAddRows="False" SelectionMode="Single" MaxWidth="1000" AutoGenerateColumns="False"  HorizontalAlignment="Center" VerticalAlignment="Top" Height="189" Width="800">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Width="120" Binding="{Binding customer.fname}" Header="First Name" />
+
+                                <DataGridTextColumn Width="120" Binding="{Binding customer.lastname }" Header="Last Name"  />
+                                <DataGridTextColumn  Width="100" Binding="{Binding customer.cnic}" Header="CNIC#"  />
+                                <DataGridTextColumn Width="100" Header="Phone" Binding="{Binding customer. cell_no}" />
+                                <DataGridTextColumn Width="100" Header="Address" Binding="{Binding customer.Address}"/>
+                                <DataGridTextColumn Width="100" Header="room#" Binding="{Binding booking.Room_}"/>
+                                <DataGridTextColumn  Width="230" Header="Date of Booking" Binding="{Binding booking.booking_date}" />
+                                <DataGridTextColumn Width="230" Header="Date leaving" Binding="{Binding booking.leave_date}"/>
+                                <DataGridTextColumn x:Name="rnt" Width="230" Header="RENT" Binding="{Binding rent}"/>
+                                <DataGridTextColumn x:Name="rmsrv" Width="230" Header="room_service" Binding="{Binding room_service}"/>
+                                <DataGridTextColumn x:Name="ttl" Width="230" Header="bill" Binding="{Binding total }"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+    </Grid>
+</UserControl>

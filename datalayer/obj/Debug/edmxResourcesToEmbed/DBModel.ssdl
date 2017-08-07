@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="hrsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="hrsModelStoreContainer">
+    <EntitySet Name="admin" EntityType="hrsModel.Store.admin" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="booking" EntityType="hrsModel.Store.booking" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="customer" EntityType="hrsModel.Store.customer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="payment" EntityType="hrsModel.Store.payment" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="record" EntityType="hrsModel.Store.record" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="room" EntityType="hrsModel.Store.room" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="hrsModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="users" EntityType="hrsModel.Store.users" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_admin_users" Association="hrsModel.Store.FK_admin_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="admin" EntitySet="admin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_booking_room" Association="hrsModel.Store.FK_booking_room">
+      <End Role="room" EntitySet="room" />
+      <End Role="booking" EntitySet="booking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_customer_booking" Association="hrsModel.Store.FK_customer_booking">
+      <End Role="booking" EntitySet="booking" />
+      <End Role="customer" EntitySet="customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_payment_booking" Association="hrsModel.Store.FK_payment_booking">
+      <End Role="booking" EntitySet="booking" />
+      <End Role="payment" EntitySet="payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_payment_customer" Association="hrsModel.Store.FK_payment_customer">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="payment" EntitySet="payment" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="nchar" Nullable="false" MaxLength="255" />
+    <Property Name="password" Type="nchar" Nullable="false" MaxLength="255" />
+    <Property Name="user_id" Type="int" />
+  </EntityType>
+  <EntityType Name="booking">
+    <Key>
+      <PropertyRef Name="Booking_id" />
+    </Key>
+    <Property Name="Booking_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Room#" Type="int" />
+    <Property Name="booking_date" Type="datetime" Nullable="false" />
+    <Property Name="leave_date" Type="datetime" Nullable="false" />
+    <Property Name="cust_id" Type="int" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="cust_id" />
+    </Key>
+    <Property Name="cust_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="fname" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="lastname" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="cnic" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="cell_no" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Address" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="booking_id" Type="int" />
+  </EntityType>
+  <EntityType Name="payment">
+    <Key>
+      <PropertyRef Name="pay_id" />
+    </Key>
+    <Property Name="pay_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="cust_id" Type="int" />
+    <Property Name="Booking_id" Type="int" />
+    <Property Name="rent" Type="int" Nullable="false" />
+    <Property Name="room_service" Type="int" />
+    <Property Name="total" Type="int" />
+  </EntityType>
+  <EntityType Name="record">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="fname" Type="nchar" Nullable="false" MaxLength="255" />
+    <Property Name="lastname" Type="nchar" Nullable="false" MaxLength="255" />
+    <Property Name="CNIC#" Type="nchar" Nullable="false" MaxLength="255" />
+    <Property Name="Address" Type="nchar" Nullable="false" MaxLength="255" />
+    <Property Name="Booking_date" Type="datetime" />
+    <Property Name="leaving_date" Type="datetime" />
+    <Property Name="room#" Type="int" />
+    <Property Name="room_service" Type="int" />
+    <Property Name="amount" Type="int" />
+    <Property Name="cell_no" Type="nchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="room">
+    <Key>
+      <PropertyRef Name="room#" />
+    </Key>
+    <Property Name="room#" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="rent" Type="int" />
+    <Property Name="room_type" Type="nchar" MaxLength="255" />
+    <Property Name="status" Type="nchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="user_name" Type="nchar" Nullable="false" MaxLength="255" />
+    <Property Name="last_name" Type="nchar" Nullable="false" MaxLength="255" />
+    <Property Name="password" Type="nchar" Nullable="false" MaxLength="255" />
+    <Property Name="cell_no" Type="nchar" Nullable="false" MaxLength="255" />
+    <Property Name="Address" Type="nchar" Nullable="false" MaxLength="255" />
+    <Property Name="cnic#" Type="nchar" Nullable="false" MaxLength="255" />
+    <Property Name="booking_id" Type="int" />
+  </EntityType>
+  <Association Name="FK_admin_users">
+    <End Role="users" Type="hrsModel.Store.users" Multiplicity="0..1" />
+    <End Role="admin" Type="hrsModel.Store.admin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="admin">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_booking_room">
+    <End Role="room" Type="hrsModel.Store.room" Multiplicity="0..1" />
+    <End Role="booking" Type="hrsModel.Store.booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="room">
+        <PropertyRef Name="room#" />
+      </Principal>
+      <Dependent Role="booking">
+        <PropertyRef Name="Room#" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_customer_booking">
+    <End Role="booking" Type="hrsModel.Store.booking" Multiplicity="0..1" />
+    <End Role="customer" Type="hrsModel.Store.customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="booking">
+        <PropertyRef Name="Booking_id" />
+      </Principal>
+      <Dependent Role="customer">
+        <PropertyRef Name="booking_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_payment_booking">
+    <End Role="booking" Type="hrsModel.Store.booking" Multiplicity="0..1" />
+    <End Role="payment" Type="hrsModel.Store.payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="booking">
+        <PropertyRef Name="Booking_id" />
+      </Principal>
+      <Dependent Role="payment">
+        <PropertyRef Name="Booking_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_payment_customer">
+    <End Role="customer" Type="hrsModel.Store.customer" Multiplicity="0..1" />
+    <End Role="payment" Type="hrsModel.Store.payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="cust_id" />
+      </Principal>
+      <Dependent Role="payment">
+        <PropertyRef Name="cust_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

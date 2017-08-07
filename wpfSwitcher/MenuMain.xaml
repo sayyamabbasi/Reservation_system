@@ -1,0 +1,125 @@
+﻿<UserControl x:Class="HOTEL_RESERVATION_SYSTEM.MenuMain"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="900">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.04*"/>
+            <ColumnDefinition Width="0.50*"/>
+            <ColumnDefinition Width="0.04*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.ColumnSpan="3" Grid.Row="0">
+            <Menu Width="Auto" Height="30" VerticalAlignment="Top">
+                <MenuItem Header="File" FontFamily="Time New Roman" FontSize="15">
+                    <MenuItem Name="fileAddDoctor" Header="Admin" />
+                    <MenuItem Name="fileAddPatient" Header="user" />
+                    <MenuItem Name="fileAddRoom" Header="logout" />
+                </MenuItem>
+                <MenuItem Header="Help" FontFamily="Time New Roman" FontSize="15">
+                    <MenuItem Name="helpabout" Header="About" />
+                </MenuItem>
+            </Menu>
+        </Grid>
+        <TabControl Grid.ColumnSpan="3" Grid.Row="1" HorizontalAlignment="Center"  VerticalAlignment="Top" TabStripPlacement="Top" Background="{x:Null}" Grid.RowSpan="2" Height="600"  Width="800" >
+            <TabItem Header="Admin" Width="150" Height="40" FontFamily="algerian" FontSize="20" Background="{x:Null}"  VerticalAlignment="Bottom">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.35*"/>
+                        <ColumnDefinition Width="0.15*"/>
+                        <ColumnDefinition Width="0.35*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions >
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="200"/>
+                        <RowDefinition Height="200"/>
+                    </Grid.RowDefinitions>
+
+                    
+                    <Grid Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Center">
+                        <Label Content="Welcome to hotel reservation system" VerticalAlignment="Center" FontSize="35" FontFamily="Algerian" ></Label>
+                    </Grid>
+                    <Grid Grid.ColumnSpan="1" Grid.Row="1" HorizontalAlignment="Center">
+                        <Label Content="user__NAME" VerticalAlignment="Bottom" FontSize="30" FontFamily="Algerian" ></Label>
+                    </Grid>
+                    <Grid Grid.ColumnSpan="1" Grid.Row="2" HorizontalAlignment="Center">
+                        <Label Content="password" VerticalAlignment="Center" FontSize="30" FontFamily="Algerian"  ></Label>
+                    </Grid>
+                    <Grid Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center">
+                        <TextBox x:Name="user_name"  VerticalAlignment="Bottom" Width="300" Height="60" FontSize="30" FontFamily="Algerian" Background="#FFFDFFF8" >
+                        </TextBox>
+                    </Grid>
+
+                    <Grid Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center">
+                        <PasswordBox x:Name="password"  PasswordChar="*" VerticalAlignment="Center" Width="300" Height="60" FontSize="30" FontFamily="Algerian" Background="#FFFDFFF8" >
+                        </PasswordBox>
+                    </Grid>
+
+                    <Grid Grid.Column="0" Grid.Row="3" VerticalAlignment="Top">
+                        <Button Content="Cancle" FontSize="30" FontFamily="ALGERIAN" Width="200" Height="70" HorizontalAlignment="Right" Background="#FFF1F188" Click="Click_cancle"/>
+                    </Grid>
+
+                    <Grid Grid.Column="2" Grid.Row="3" VerticalAlignment="Top">
+                        <Button Content="login" FontSize="30" FontFamily="ALGERIAN" Width="200" Height="70" HorizontalAlignment="Left" Background="#FFF1F188" Click="Btn_Login"/>
+                    </Grid>
+                </Grid>
+
+            </TabItem>
+            <TabItem Header="user" Width="150" Height="40" FontFamily="algerian" FontSize="20" Background="{x:Null}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="225*"/>
+                        <ColumnDefinition Width="102*"/>
+                        <ColumnDefinition Width="140*"/>
+                        <ColumnDefinition Width="327*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions >
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="200"/>
+                        <RowDefinition Height="200"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.ColumnSpan="4" Grid.Row="0" HorizontalAlignment="Center">
+                    <Label Content="Welcome to hotel reservation system" VerticalAlignment="Center" FontSize="35" FontFamily="Algerian" ></Label>
+                </Grid>
+                <Grid Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Center" Margin="74,0">
+                        <Label Content="user__NAME" VerticalAlignment="Bottom" FontSize="30" FontFamily="Algerian" ></Label>
+                    </Grid>
+                    <Grid Grid.ColumnSpan="2" Grid.Row="2" HorizontalAlignment="Center" Margin="76,0,75,0">
+                        <Label Content="password" VerticalAlignment="Center" FontSize="30" FontFamily="Algerian" ></Label>
+                    </Grid>
+                    <Grid Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" Margin="13,0,14,0">
+                        <TextBox x:Name="usr_name"  VerticalAlignment="Bottom" Width="300" Height="60" FontSize="30" FontFamily="Algerian" Background="#FFFFFFF8" TextChanged="TextBox_TextChanged_1" >
+                        </TextBox>
+                    </Grid>
+
+                    <Grid Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" Margin="13,0,14,0">
+                        <PasswordBox x:Name ="pswrd" PasswordChar="*" VerticalAlignment="Center" Width="300" Height="60" FontSize="30" FontFamily="Algerian" Background="#FFFDFFF8" >
+                        </PasswordBox>
+                    </Grid>
+
+                    <Grid Grid.Column="0" Grid.Row="3" VerticalAlignment="Top" Grid.ColumnSpan="2">
+                        <Button Content="Cancle" FontSize="30" FontFamily="ALGERIAN" Width="200" Height="70" HorizontalAlignment="Right" Background="#FFF1F188" Click="Click_cancle"/>
+                    </Grid>
+
+                    <Grid Grid.Column="3" Grid.Row="3" VerticalAlignment="Top">
+                        <Button Content="log_in" FontSize="30" FontFamily="ALGERIAN" Width="200" Height="70" HorizontalAlignment="Left" Background="#FFF1F188" Click="user_login"/>
+                    </Grid>
+
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+    </Grid>
+</UserControl>

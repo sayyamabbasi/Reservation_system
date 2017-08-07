@@ -1,0 +1,374 @@
+﻿<UserControl x:Class="HOTEL_RESERVATION_SYSTEM.testing"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="900">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.04*"/>
+            <ColumnDefinition Width="0.50*"/>
+            <ColumnDefinition Width="0.04*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="650"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.ColumnSpan="3" Grid.Row="0">
+            <Menu Width="Auto" Height="30" VerticalAlignment="Top">
+                <MenuItem Header="File" FontFamily="Time New Roman" FontSize="15">
+                    <MenuItem Name="fileAddDoctor" Header="Add Doctor" />
+                    <MenuItem Name="fileAddPatient" Header="Add Patient" />
+                    <MenuItem Name="fileAddRoom" Header="Add Room" />
+                    <MenuItem Name="fileAddNurse" Header="Add Nurse" />
+                    <MenuItem Name="fileLogout" Header="Logout"/>
+                </MenuItem>
+                <MenuItem Header="Help" FontFamily="Time New Roman" FontSize="15">
+                    <MenuItem Name="helpabout" Header="About" />
+                </MenuItem>
+            </Menu>
+        </Grid>
+        <TabControl Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Top" TabStripPlacement="Top" Background="{x:Null}" Margin="43,35,43.483,0" Grid.RowSpan="2">
+            <TabItem Header="Add Doctor" Width="150" Height="40" FontFamily="Time New Roman" FontSize="15" Background="{x:Null}" Margin="-2,0" VerticalAlignment="Bottom">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.15*"/>
+                        <ColumnDefinition Width="0.15*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="200"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Column="0" Grid.Row="0">
+                        <Label Content="First Name" Width="100" Height="30" HorizontalAlignment="Left"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="0">
+                        <TextBox Width="270" Height="30" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="0">
+                        <Label Content="Last Name" Width="100" Height="30" HorizontalAlignment="Left"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="0">
+                        <TextBox  Width="270" Height="30" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="1">
+                        <Label Content="User Name" Width="100" Height="30" HorizontalAlignment="Left"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="1">
+                        <TextBox Width="270" Height="30" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left">
+                        <Label Content="Password" Width="100" Height="30"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="1">
+                        <PasswordBox Width="270" Height="30" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="2">
+                        <Label Content="Date Of Birth" Width="100" Height="30" HorizontalAlignment="Left"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="2">
+                        <TextBox Width="270" Height="30" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="2">
+                        <Label Content="Phone" Width="100" Height="30" HorizontalAlignment="Left"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="2">
+                        <TextBox Width="270" Height="30" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="3">
+                        <Label Content="Specialization" Width="100" Height="30" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="6">
+                        <TextBox  Width="300" Height="30" HorizontalAlignment="Left"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="7">
+                        <Label  Content="Salary" Width="100" Height="30" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="7">
+                        <TextBox  Width="300" Height="30" HorizontalAlignment="Left"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="8">
+                        <Label Content="Gender" Width="100" Height="30" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="8">
+                        <RadioButton x:Name="rbMale" IsChecked="True" Content="Male" Width="100" Height="30" HorizontalAlignment="Left"/>
+                        <RadioButton x:Name="rbFemale" Content="Female" Width="100" Height="30" HorizontalAlignment="Left" Margin="100,0,0,0"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="9">
+                        <Button Content="Update" Width="125" Height="30" HorizontalAlignment="Right" Background="#FF00EECD"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="9">
+                        <Button Content="Delete" Width="125" Height="30" HorizontalAlignment="Left" Margin="100,0,0,0" Background="#FFE60000"/>
+                    </Grid>
+                    <Grid Grid.ColumnSpan="2" Grid.Row="10">
+                        <DataGrid CanUserAddRows="False" SelectionMode="Single" MaxWidth="900" AutoGenerateColumns="False" x:Name="dataGrid_Doctor" HorizontalAlignment="Center" VerticalAlignment="Top" Height="189" Width="800">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Width="80" Header="First Name"  />
+                                <DataGridTextColumn Width="80" Header="Last Name"  />
+                                <DataGridTextColumn Width="80" Header="Date of Birth"  />
+                                <DataGridTextColumn Width="50" Header="Gender"  />
+                                <DataGridTextColumn Header="Employee Type"  />
+                                <DataGridTextColumn Header="Specialization"  />
+                                <DataGridTextColumn Header="Username" />
+                                <DataGridTextColumn Header="Password" />
+                                <DataGridTextColumn Width="60" Header="Salary" />
+                                <DataGridTextColumn Header="Phone" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Add Nurse" Width="150" Height="40" FontFamily="Time New Roman" FontSize="15" Background="{x:Null}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.15*"/>
+                        <ColumnDefinition Width="0.15*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="120"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Column="0" Grid.Row="0">
+                        <Label Content="First Name" Width="100" Height="30" HorizontalAlignment="Left"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="0">
+                        <TextBox Width="270" Height="30" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="0">
+                        <Label Content="Last Name" Width="100" Height="30" HorizontalAlignment="Left"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="0">
+                        <TextBox  Width="270" Height="30" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="1">
+                        <Label Content="User Name" Width="100" Height="30" HorizontalAlignment="Left"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="1">
+                        <TextBox Width="270" Height="30" HorizontalAlignment="Right" />
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left">
+                        <Label Content="Password" Width="100" Height="30"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="1">
+                        <PasswordBox Width="270" Height="30" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="2">
+                        <Label Content="Date Of Birth" Width="100" Height="30" HorizontalAlignment="Left"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="2">
+                        <TextBox Width="270" Height="30" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="2">
+                        <Label Content="Phone" Width="100" Height="30" HorizontalAlignment="Left"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="2">
+                        <TextBox Width="270" Height="30" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="3">
+                        <Label Content="Specialization" Width="100" Height="30" HorizontalAlignment="Left"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="3">
+                        <TextBox  Width="270" Height="30" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="3">
+                        <Label  Content="Salary" Width="100" Height="30" HorizontalAlignment="Left"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="3">
+                        <TextBox  Width="270" Height="30" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="4">
+                        <Label Content="Gender" Width="100" Height="30" HorizontalAlignment="Left"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="4" VerticalAlignment="Bottom">
+                        <RadioButton  Content="Female" Width="100" Height="30" HorizontalAlignment="Right"/>
+                        <RadioButton  IsChecked="True" Content="Male" Width="100" Height="30" HorizontalAlignment="Right" Margin="0,0,100,0"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="4">
+                        <Button Content="Update" Width="125" Height="30" HorizontalAlignment="Right" Background="#FF00EECD" Margin="0,0,70,0"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="4">
+                        <Button Content="Delete" Width="125" Height="30" HorizontalAlignment="Left" Background="#FFE60000" Margin="70,0,0,0"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="5">
+                        <Label Content="Search Record By" Width="150" HorizontalAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="5">
+                        <ComboBox Width="250" Height="30" HorizontalAlignment="Center">
+                            <ComboBoxItem>First Name</ComboBoxItem>
+                            <ComboBoxItem>Last Name</ComboBoxItem>
+                            <ComboBoxItem>Gender</ComboBoxItem>
+                            <ComboBoxItem>Username</ComboBoxItem>
+                            <ComboBoxItem>Phone</ComboBoxItem>
+                        </ComboBox>
+                    </Grid>
+                    <Grid Grid.ColumnSpan="2" Grid.Row="6" Grid.RowSpan="6">
+                        <DataGrid CanUserAddRows="False" SelectionMode="Single" MaxWidth="900" AutoGenerateColumns="False" x:Name="dataGrid_Nurse" HorizontalAlignment="Center" VerticalAlignment="Top" Height="240" Width="800">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Width="80" Header="First Name"  />
+                                <DataGridTextColumn Width="80" Header="Last Name"  />
+                                <DataGridTextColumn Width="80" Header="Date of Birth"  />
+                                <DataGridTextColumn Width="50" Header="Gender"  />
+                                <DataGridTextColumn Header="Employee Type"  />
+                                <DataGridTextColumn Header="Specialization"  />
+                                <DataGridTextColumn Header="Username" />
+                                <DataGridTextColumn Header="Password" />
+                                <DataGridTextColumn Width="60" Header="Salary" />
+                                <DataGridTextColumn Header="Phone" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                    <Grid Grid.ColumnSpan="2" Grid.Row="12">
+                        <Button Content="Add Doctor" Width="200" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" Background="#FF595CA4"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="AddPatient" Width="150" Height="40" FontFamily="Time New Roman" FontSize="15" Background="{x:Null}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.15*"/>
+                        <ColumnDefinition Width="0.15*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="200"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Column="0" Grid.Row="0">
+                        <Label Content="Full Name" Width="100" Height="30" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="0">
+                        <TextBox Width="300" Height="30" HorizontalAlignment="Left"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="1">
+                        <Label Content="Date of Birth" Width="100" Height="30" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="1">
+                        <TextBox  Width="300" Height="30" HorizontalAlignment="Left"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="2">
+                        <Label Content="Gender" Width="100" Height="30" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="2">
+                        <RadioButton IsChecked="True" Content="Male" Width="100" Height="30" HorizontalAlignment="Left"/>
+                        <RadioButton Content="Female" Width="100" Height="30" HorizontalAlignment="Left" Margin="100,0,0,0"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="3">
+                        <Button Content="Update" Width="125" Height="30" HorizontalAlignment="Right" Background="#FF00EECD"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="3">
+                        <Button Content="Delete" Width="125" Height="30" HorizontalAlignment="Left" Margin="100,0,0,0" Background="#FFE60000"/>
+                    </Grid>
+                    <Grid Grid.ColumnSpan="2" Grid.Row="9">
+                        <DataGrid CanUserAddRows="False" SelectionMode="Single" MaxWidth="900" AutoGenerateColumns="False" x:Name="dataGrid_Patient" HorizontalAlignment="Center" VerticalAlignment="Top" Height="189" Width="800">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Width="80" Header="Full Name"/>
+                                <DataGridTextColumn Width="100" Header="Date of Birth"/>
+                                <DataGridTextColumn Width="80" Header="Gender"  />
+                                <DataGridTextColumn Width="100" Header="Patient Type"/>
+                                <DataGridTextColumn Width="100" Header="Doctor Name"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Add Room" Width="150" Height="40" FontFamily="Time New Roman" FontSize="15" Background="{x:Null}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.15*"/>
+                        <ColumnDefinition Width="0.15*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="350"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Column="0" Grid.Row="0">
+                        <Label Content="Enter Number of beds" Width="250" Height="30" HorizontalAlignment="Right" Padding="90,5,0,0"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="0">
+                        <TextBox Width="300" Height="30" HorizontalAlignment="Left"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="1">
+                        <Label Content="Governed By" Width="100" Height="30" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="1">
+                        <TextBox  Width="300" Height="30" HorizontalAlignment="Left"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="2">
+                        <Button Content="Update" Width="125" Height="30" HorizontalAlignment="Right" Background="#FF00EECD"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="2">
+                        <Button Content="Delete" Width="125" Height="30" HorizontalAlignment="Left" Margin="100,0,0,0" Background="#FFE60000"/>
+                    </Grid>
+                    <Grid Grid.ColumnSpan="2" Grid.Row="9">
+                        <DataGrid CanUserAddRows="False" SelectionMode="Single" MaxWidth="900" AutoGenerateColumns="False" x:Name="dataGrid_Room" HorizontalAlignment="Center" VerticalAlignment="Top" Height="189" Width="800">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Width="80" Header="Room No"/>
+                                <DataGridTextColumn Width="120" Header="Total No of beds"/>
+                                <DataGridTextColumn Width="105" Header="Available beds"/>
+                                <DataGridTextColumn Width="120" Header="No of Patients"/>
+                                <DataGridTextColumn Width="100" Header="Governed By"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Indoor Patient" Width="150" Height="40" FontFamily="Time New Roman" FontSize="15" Background="{x:Null}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.15*"/>
+                        <ColumnDefinition Width="0.15*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="300"/>
+                        <RowDefinition Height="290"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Column="0" Grid.Row="0">
+                        <Label Content="Select Room No" Width="120" Height="30" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="0">
+                        <TextBox Width="300" Height="30" HorizontalAlignment="Left"/>
+                    </Grid>
+                    <Grid Grid.ColumnSpan="2" Grid.Row="1">
+                        <DataGrid CanUserAddRows="False" SelectionMode="Single" MaxWidth="900" AutoGenerateColumns="False" x:Name="dataGrid_IndoorPatients" HorizontalAlignment="Center" VerticalAlignment="Top" Height="189" Width="800">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Width="100" Header="Patient Name"/>
+                                <DataGridTextColumn Width="100" Header="Gender"/>
+                                <DataGridTextColumn Width="80" Header="Category"/>
+                                <DataGridTextColumn Width="100" Header="Disease"/>
+                                <DataGridTextColumn Width="100" Header="Room No"/>
+                                <DataGridTextColumn Width="100" Header="Status"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+
+</UserControl>
